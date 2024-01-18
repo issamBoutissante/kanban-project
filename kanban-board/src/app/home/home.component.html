@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page - Kanban Boards</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Kanban Boards</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" (click)="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Boards List -->
+    <div class="container mt-5">
+      <div class="d-flex justify-content-between mb-4">
+        <h2>Your Boards</h2>
+        <div>
+          <input
+            type="text"
+            class="form-control d-inline mr-2"
+            placeholder="Enter new board name"
+            [(ngModel)]="newBoardName"
+          />
+          <button class="btn btn-success" (click)="addNewBoard()">
+            + Add New Board
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Repeat this col for each board -->
+        <div class="col-md-4 mb-3" *ngFor="let board of boards">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ board.name }}</h5>
+              <div class="mt-auto">
+                <a class="card-link" (click)="openBoard(board.id)"
+                  >Open Board</a
+                >
+                <button
+                  class="btn btn-danger btn-sm"
+                  (click)="deleteBoard(board.id)"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End repeat -->
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

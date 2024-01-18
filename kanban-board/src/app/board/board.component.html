@@ -1,0 +1,45 @@
+<style>
+  .control-section {
+    margin-top: 100px;
+  }
+</style>
+<div class="control-section">
+  <div class="col-lg-9 content-wrapper">
+    <div id="container">
+      <ejs-kanban
+        #kanbanObj
+        (actionComplete)="onActionComplete($event)"
+        [dataSource]="kanbanData"
+        [cardSettings]="cardSettings"
+        keyField="status"
+      >
+        <e-columns>
+          <e-column headerText="To Do" keyField="Open"></e-column>
+          <e-column headerText="In Progress" keyField="InProgress"></e-column>
+          <e-column headerText="Testing" keyField="Testing"></e-column>
+          <e-column headerText="Done" keyField="Close"></e-column>
+        </e-columns>
+      </ejs-kanban>
+    </div>
+  </div>
+  <div class="col-lg-3 property-section property-customization">
+    <div class="property-panel-section">
+      <div class="property-panel-content">
+        <table id="property" title="Properties">
+          <tr>
+            <td>
+              <button
+                ejs-button
+                id="addNew"
+                class="e-dialog-add"
+                (click)="addClick()"
+              >
+                Add New Card
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
