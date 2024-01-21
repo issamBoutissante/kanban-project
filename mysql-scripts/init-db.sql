@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS board_service_db;
+CREATE DATABASE IF NOT EXISTS task_service_db;
