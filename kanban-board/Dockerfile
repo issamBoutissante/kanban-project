@@ -12,6 +12,5 @@ FROM nginx:alpine
 COPY --from=build /app/dist/kanban-board /usr/share/nginx/html
 # Expose port 4200 to the outside
 EXPOSE 4200
-# Use the default nginx.conf provided by the nginx image
-COPY ./.angular/nginx.conf /etc/nginx/nginx.conf
+# Start Nginx and keep the process from running in the background
 CMD ["nginx", "-g", "daemon off;"]
